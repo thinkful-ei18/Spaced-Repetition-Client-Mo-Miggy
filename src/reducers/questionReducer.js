@@ -16,16 +16,19 @@ const questionReducer = (state = initialState, action) => {
   if (action.type === FETCH_QUESTION_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
+      error: null,
     });
   } else if (action.type === FETCH_QUESTION_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
+      error: null,
       question: action.payload,
     });
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
       question: null,
       loading: false,
+      error: action.err,
     });
   } else {
     return state;

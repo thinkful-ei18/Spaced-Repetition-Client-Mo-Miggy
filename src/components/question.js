@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchQuestions } from '../actions/questions';
+import { fetchQuestion } from '../actions/questions';
 
 class Question extends React.Component {
   componentDidMount() {
-    // this.props.fetchQuestions();
+    // this.props.fetchQuestion();
   }
   onChange(e) {
     e.preventDefault();
@@ -28,4 +28,4 @@ const mapStateToProps = state => ({
   question: state.question,
 });
 
-export default connect(mapStateToProps, { fetchQuestions })(Question);
+export default connect(mapStateToProps, { fetchQuestion })(Question);

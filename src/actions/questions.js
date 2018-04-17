@@ -7,14 +7,14 @@ export const FETCH_QUESTION_ERROR = 'FETCH_QUESTION_ERROR';
 
 const fetchQuestionRequest = question => ({
   type: FETCH_QUESTION_REQUEST,
-  payload: question,
 });
 const fetchQuestionError = err => ({
   type: FETCH_QUESTION_ERROR,
   err,
 });
-const fetchQuestionSuccess = () => ({
+const fetchQuestionSuccess = question => ({
   type: FETCH_QUESTION_SUCCESS,
+  payload: question,
 });
 
 export const fetchQuestion = dispatch => {
@@ -23,8 +23,8 @@ export const fetchQuestion = dispatch => {
     method: 'GET',
   })
     .then(res => res.json())
-    .then(data => {
-      dispatch(fetchQuestionSuccess(data));
+    .then(question => {
+      dispatch(fetchQuestionSuccess(question));
     })
     .catch(err => {
       dispatch(fetchQuestionError(err));
