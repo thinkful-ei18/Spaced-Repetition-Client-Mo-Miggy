@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 class Question extends React.Component {
-  componentDidMount() {
-  }
   onChange(e) {
     e.preventDefault();
     console.log(e.target.value);
   }
   render() {
+    console.log(this.props.spanish);
     let question = this.props.question;
     return (
       <div className="question-dashboard">
