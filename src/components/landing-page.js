@@ -11,10 +11,9 @@ export function LandingPage(props) {
   }
 
   return (
-    <div className="home">
-      <h2>Welcome to Spanglish</h2>
+    <div className="loginBox">
+      <h2>Spanglish</h2>
       <LoginForm />
-      <Link to="/register">Register</Link>
     </div>
   );
 }
