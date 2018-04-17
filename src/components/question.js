@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchQuestion } from '../actions/questions';
-
 class Question extends React.Component {
   onChange(e) {
     e.preventDefault();
@@ -26,4 +24,4 @@ const mapStateToProps = state => ({
   question: state.question,
 });
 
-export default connect(mapStateToProps, { fetchQuestion })(Question);
+export default connect(mapStateToProps)(Question);
