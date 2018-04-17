@@ -17,7 +17,7 @@ const fetchQuestionSuccess = question => ({
   payload: question,
 });
 
-export const fetchQuestion = dispatch => {
+export const fetchQuestion = () => dispatch => {
   dispatch(fetchQuestionRequest());
   return fetch(`${API_BASE_URL}/questions`, {
     method: 'GET',

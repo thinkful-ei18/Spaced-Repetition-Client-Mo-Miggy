@@ -4,18 +4,18 @@ import { fetchQuestion } from '../actions/questions';
 
 class Question extends React.Component {
   componentDidMount() {
-    // this.props.fetchQuestion();
+    this.props.fetchQuestion();
   }
   onChange(e) {
     e.preventDefault();
     console.log(e.target.value);
   }
   render() {
-    // let question = this.props.question;
+    let question = this.props.question;
     return (
       <div className="question-dashboard">
         <form onChange={e => this.onChange(e)}>
-          <h2>question</h2>
+          <h2>{question}</h2>
           <input type="text" />
           <button>Submit</button>
         </form>
