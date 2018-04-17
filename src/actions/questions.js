@@ -20,7 +20,7 @@ const fetchQuestionSuccess = question => ({
 export const fetchQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
-  return fetch(`${API_BASE_URL}/dash/question`, {
+  return fetch(`${API_BASE_URL}/questions`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`
