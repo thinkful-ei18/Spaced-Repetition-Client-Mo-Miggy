@@ -17,10 +17,14 @@ const fetchQuestionSuccess = question => ({
   payload: question,
 });
 
-export const fetchQuestion = () => dispatch => {
+export const fetchQuestion = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
-  return fetch(`${API_BASE_URL}/questions`, {
+  return fetch(`${API_BASE_URL}/user/question`, {
     method: 'GET',
+    headers: {
+      Authorization: authToken,
+    },
   })
     .then(res => res.json())
     .then(question => {
