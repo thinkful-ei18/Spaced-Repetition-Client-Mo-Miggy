@@ -1,17 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 class Question extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      question: this.props.question.question,
+    };
+  }
   onChange(e) {
     e.preventDefault();
     console.log(e.target.value);
   }
   render() {
-    console.log(this.props.spanish);
-    let question = this.props.question;
+    // const question = this.state.question;
+    console.log(`${this.state.question} this is in question comp`);
     return (
       <div className="question-dashboard">
         <form onChange={e => this.onChange(e)}>
-          <h2>{question}</h2>
+          <h2 />
           <input type="text" />
           <button>Submit</button>
         </form>
@@ -20,8 +27,4 @@ class Question extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  question: state.question,
-});
-
-export default connect(mapStateToProps)(Question);
+export default Question;
