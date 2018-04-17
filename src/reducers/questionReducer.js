@@ -1,22 +1,34 @@
-import { FETCH_QUESTIONS } from '../actions/questions';
+import {
+  FETCH_QUESTION_ERROR,
+  FETCH_QUESTION_SUCCESS,
+  FETCH_QUESTION_REQUEST,
+} from '../actions/questions';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 const initialState = {
   question: null,
+  error: null,
+  loading: null,
 };
 
 const questionReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_QUESTIONS:
-      console.log('fetch question reducer called');
-      return {
-        ...state,
-        question: action.payload,
-      };
-    default: {
-      return state;
-    }
+  if (action.type === FETCH_QUESTION_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+    });
+  } else if (action.type === FETCH_QUESTION_SUCCESS) {
+    return Object.assign({}, state, {
+      loading: false,
+      question: action.payload,
+    });
+  } else if (action.type === FETCH_QUESTION_ERROR) {
+    return Object.assign({}, state, {
+      question: null,
+      loading: false,
+    });
+  } else {
+    return state;
   }
 };
 
