@@ -6,7 +6,7 @@ class Question extends React.Component {
     console.log(e.target.value);
   }
   render() {
-    console.log(this.props);
+    console.log(this.props.spanish);
     let question = this.props.question;
     return (
       <div className="question-dashboard">

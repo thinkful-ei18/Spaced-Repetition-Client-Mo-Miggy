@@ -35,7 +35,10 @@ const mapStateToProps = state => {
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     id: `${currentUser.id}`,
     protectedData: state.protectedData.data,
+    question: state.question,
   };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(
+  connect(mapStateToProps, { fetchQuestion })(Dashboard)
+);

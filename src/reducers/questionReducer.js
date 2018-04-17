@@ -3,8 +3,6 @@ import {
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_REQUEST,
 } from '../actions/questions';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
 
 const initialState = {
   question: null,
@@ -12,7 +10,7 @@ const initialState = {
   loading: null,
 };
 
-const questionReducer = (state = initialState, action) => {
+export default function questionReducer(state = initialState, action) {
   if (action.type === FETCH_QUESTION_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
@@ -33,12 +31,4 @@ const questionReducer = (state = initialState, action) => {
   } else {
     return state;
   }
-};
-
-const reducers = combineReducers({
-  question: questionReducer,
-});
-
-const middleware = applyMiddleware(thunk);
-
-export default createStore(reducers, initialState, middleware);
+}
