@@ -13,6 +13,8 @@ export class Dashboard extends React.Component {
 
   render() {
     console.log('user id is ', this.props.id);
+    console.log(this.props.currentQuestion);
+    const question = this.props.currentQuestion;
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -22,7 +24,7 @@ export class Dashboard extends React.Component {
         <div className="dashboard-protected-data">
           Protected data: {this.props.protectedData}
         </div>
-        <Question />
+        <Question question={question} />
       </div>
     );
   }
@@ -35,7 +37,7 @@ const mapStateToProps = state => {
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     id: `${currentUser.id}`,
     protectedData: state.protectedData.data,
-    question: state.question,
+    currentQuestion: state.question,
   };
 };
 
