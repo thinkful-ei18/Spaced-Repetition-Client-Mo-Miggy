@@ -6,12 +6,16 @@ import {
   SUBMIT_USER_ANSWER_WRONG,
   SUBMIT_USER_ANSWER_CORRECT_ERROR,
   SUBMIT_USER_ANSWER_WRONG_ERROR,
+  SUBMIT_USER_ANSWER_CORRECT_REQUEST,
+  SUBMIT_USER_ANSWER_WRONG_REQUEST,
 } from '../actions/questions';
 
 const initialState = {
   game: null,
   error: null,
   loading: null,
+  correct: false,
+  wrong: false,
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -33,17 +37,20 @@ export default function questionReducer(state = initialState, action) {
       error: action.err,
     });
   } else if (action.type === SUBMIT_USER_ANSWER_CORRECT) {
-    return state;
+    Object.assign({}, state, {
+      correct: true,
+      wrong: false,
+    });
   } else if (action.type === SUBMIT_USER_ANSWER_WRONG) {
-    return state;
+    Object.assign({}, state, {
+      correct: false,
+      wrong: true,
+    });
   } else if (
     action.type === SUBMIT_USER_ANSWER_CORRECT_ERROR ||
     action.type === SUBMIT_USER_ANSWER_WRONG_ERROR
   ) {
-    Object.assign({}, state, {
-      game: null,
-      error: action.err,
-    });
+    return state;
   } else {
     return state;
   }

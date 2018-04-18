@@ -48,6 +48,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
 
 export const submitUserAnswerCorrectRequest = correct => ({
   type: SUBMIT_USER_ANSWER_CORRECT_REQUEST,
+  correct: true,
 });
 
 export const submitUserAnswerCorrectError = err => ({
@@ -57,6 +58,7 @@ export const submitUserAnswerCorrectError = err => ({
 
 export const submitUserAnswerWrongRequest = wrong => ({
   type: SUBMIT_USER_ANSWER_WRONG_REQUEST,
+  wrong: true,
 });
 
 export const submitUserAnswerWrongError = err => ({
@@ -67,16 +69,13 @@ export const submitUserAnswerWrongError = err => ({
 export const submitUserAnswerCorrect = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(submitUserAnswerCorrectRequest());
-  return fetch(`${API_BASE_URL}/correct`, {
+  return fetch(`${API_BASE_URL}/questions/correct`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
   })
     .then(res => res.json())
-    .then(() => {
-      dispatch(fetchQuestion());
-    })
     .catch(err => {
       dispatch(submitUserAnswerCorrectError(err));
     });
@@ -85,16 +84,13 @@ export const submitUserAnswerCorrect = () => (dispatch, getState) => {
 export const submitUserAnswerWrong = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(submitUserAnswerWrongRequest());
-  return fetch(`${API_BASE_URL}/correct`, {
+  return fetch(`${API_BASE_URL}/questions/wrong`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
   })
     .then(res => res.json())
-    .then(() => {
-      dispatch(fetchQuestion());
-    })
     .catch(err => {
       dispatch(submitUserAnswerWrongError(err));
     });

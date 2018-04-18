@@ -14,7 +14,6 @@ export class Dashboard extends React.Component {
   render() {
     console.log('user id is ', this.props.id);
     console.log(this.props.currentQuestion);
-    const question = this.props.currentQuestion;
     return (
       <div className="dashboard">
         <div className="dashboard-username">

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   submitUserAnswerCorrect,
   submitUserAnswerWrong,
+  fetchQuestion,
 } from '../actions/questions';
 
 class Question extends React.Component {
@@ -14,12 +15,17 @@ class Question extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     console.log(this.props.currentQuestion.englishWord);
-    let englishWord = this.props.currentQuestion.englishWord[0];
 
-    if (this.state.userInput === englishWord) {
-      this.props.dispatch(submitUserAnswerCorrect());
-    } else {
-      this.props.dispatch(submitUserAnswerWrong());
+    let englishWord = this.props.currentQuestion.englishWord;
+
+    if (this.state.userInput) {
+      if (this.state.userInput.toLowerCase() === englishWord.toLowerCase()) {
+        this.props.dispatch(submitUserAnswerCorrect());
+        this.props.dispatch(fetchQuestion());
+      } else {
+        this.props.dispatch(submitUserAnswerWrong());
+        console.log('error');
+      }
     }
   }
   verifyAnswer(e) {
@@ -40,6 +46,7 @@ class Question extends React.Component {
       <div className="question-dashboard">
         <form onChange={e => this.onChange(e)}>
           <h2>{spanishWord}</h2>
+          <h2>{}</h2>
           <input type="text" />
           <button onClick={e => this.onSubmit(e)}>Submit</button>
         </form>
@@ -49,6 +56,8 @@ class Question extends React.Component {
 }
 const mapStateToProps = state => ({
   currentQuestion: state.question.game,
+  wrong: state.question.wrong,
+  correct: state.question.correct,
 
   // currentQuestion: state.question,
 });
