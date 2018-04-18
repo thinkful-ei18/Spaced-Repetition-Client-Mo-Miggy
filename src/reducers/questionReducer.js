@@ -5,7 +5,7 @@ import {
 } from '../actions/questions';
 
 const initialState = {
-  question: null,
+  game: null,
   error: null,
   loading: null,
 };
@@ -20,11 +20,11 @@ export default function questionReducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: null,
-      question: action.payload,
+      game: action.payload,
     });
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
-      question: null,
+      game: null,
       loading: false,
       error: action.err,
     });

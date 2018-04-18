@@ -6,7 +6,7 @@ class Question extends React.Component {
     e.preventDefault();
     console.log(e.target.value);
   }
-  verifyAnswer(e){
+  verifyAnswer(e) {
     //this is where the validation happens
   }
   render() {
@@ -14,7 +14,11 @@ class Question extends React.Component {
     // console.log(this.props.state.question.question,'this is the state');
     console.log('-=====-');
     // console.log(this.props.currentQuestion,'question is');
-    const spanishWord = this.props.currentQuestion !== null ? this.props.currentQuestion.spanishWord : undefined
+    const spanishWord =
+      this.props.currentQuestion !== null
+        ? this.props.currentQuestion.spanishWord
+        : undefined;
+    console.log(spanishWord);
     return (
       <div className="question-dashboard">
         <form onChange={e => this.onChange(e)}>
@@ -26,11 +30,10 @@ class Question extends React.Component {
     );
   }
 }
-const mapStateToProps = state =>({
-  currentQuestion:state.question.question,
+const mapStateToProps = state => ({
+  currentQuestion: state.question.game,
 
-
-      // currentQuestion: state.question,
-})
+  // currentQuestion: state.question,
+});
 
 export default connect(mapStateToProps)(Question);
