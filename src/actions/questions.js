@@ -52,10 +52,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
 
 export const submitUserAnswerCorrect = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log('dispatching on right ans');
-
   dispatch(feedbackRight())
-  console.log(getState());
   fetch(`${API_BASE_URL}/questions/correct`, {
     method: 'GET',
     headers: {
@@ -68,7 +65,7 @@ export const submitUserAnswerCorrect = () => (dispatch, getState) => {
 
 export const submitUserAnswerWrong = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  // dispatch(feedbackWrong());
+  dispatch(feedbackWrong());
   fetch(`${API_BASE_URL}/questions/wrong`, {
     method: 'GET',
     headers: {
