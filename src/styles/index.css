@@ -43,7 +43,7 @@ h2 {
   margin: 0;
   padding: 0;
   font-weight: bold;
-  color: rgb(200, 200, 200);
+  color: rgb(253, 245, 245);
 }
 .loginBox input {
   width: 100%;
@@ -56,7 +56,7 @@ h2 {
   background: transparent;
   outline: none;
   height: 40px;
-  color: rgb(200, 200, 200);
+  color: rgb(253, 245, 245);
   font-size: 16px;
 }
 ::placeholder {
@@ -74,6 +74,7 @@ a {
   color: rgb(253, 245, 245);
   float: right;
   width: 45%;
+  border: none;
 }
 .btn-landing {
   font-family: sans-serif;
@@ -83,6 +84,7 @@ a {
   width: 45%;
   display: inline-block;
   color: rgb(253, 245, 245);
+  border: none;
 }
 
 .btn-register {
@@ -94,6 +96,7 @@ a {
   display: inline-block;
   position: relative;
   left: 25%;
+  border: none;
 }
 
 loginBox2 p {
@@ -129,4 +132,23 @@ loginBox2 p {
 }
 .feedback {
   text-align: center;
+}
+.header-bar {
+  height: 40px;
+  background: rgba(240, 28, 56, 0.8);
+}
+.header-bar > button {
+  background: rgba(240, 28, 56, 0);
+  color: rgb(253, 245, 245);
+  width: 10%;
+  font-size: 16px;
+  font-family: pacifico;
+  height: 100%;
+  float: right;
+  border: none;
+}
+.nav-app-name {
+  height: 100%;
+  font-family: pacifico;
+  font-size: 20px;
 }

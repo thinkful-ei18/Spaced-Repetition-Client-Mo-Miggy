@@ -16,7 +16,10 @@ export class HeaderBar extends React.Component {
       logOutButton = <button onClick={() => this.logOut()}>Log out</button>;
     }
     return (
-      <div className=" header-primary-main header-bar">{logOutButton}</div>
+      <div className=" header-primary-main header-bar">
+        <span className="nav-app-name">Spanglish</span>
+        {logOutButton}
+      </div>
     );
   }
 }
