@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import {
   submitUserAnswerCorrect,
   submitUserAnswerWrong,
-  fetchQuestion,
+  fetchFeedBackCorrect,
+  fetchFeedBackIncorrect,
 } from '../actions/questions';
 
 class Question extends React.Component {
-  onChange(e) {
-    e.preventDefault();
-    this.setState({ userInput: e.target.value });
-  }
   onSubmit(e) {
     e.preventDefault();
 
@@ -20,8 +17,7 @@ class Question extends React.Component {
 
     if (answer === userInput) {
       this.props.dispatch(submitUserAnswerCorrect());
-    }
-    else {
+    } else {
       this.props.dispatch(submitUserAnswerWrong());
     }
   }
@@ -29,22 +25,20 @@ class Question extends React.Component {
     //this is where the validation happens
   }
   render() {
-    if(this.props.wrong){
-      console.log('you were wrong!');
-    }
-    if(this.props.correct){
-      console.log('you were dog!');
-    }
     const spanishWord =
       this.props.currentQuestion !== null
         ? this.props.currentQuestion.spanishWord
         : undefined;
+    const feedback =
+      this.props.feedback !== null ? this.props.feedback : undefined;
+
     return (
       <div className="question-dashboard">
         <form onSubmit={e => this.onSubmit(e)}>
           <h2>{spanishWord}</h2>
-          <input type="text" name="userAnswer" autoComplete='off'/>
-          <button >Submit</button>
+          <h3>{feedback}</h3>
+          <input type="text" name="userAnswer" autoComplete="off" />
+          <button>Submit</button>
         </form>
       </div>
     );
@@ -54,6 +48,7 @@ const mapStateToProps = state => ({
   currentQuestion: state.question.game,
   wrong: state.question.wrong,
   correct: state.question.correct,
+  feedback: state.question.feedback,
 
   // currentQuestion: state.question,
 });

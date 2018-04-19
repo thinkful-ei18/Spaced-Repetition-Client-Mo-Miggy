@@ -17,20 +17,32 @@ const fetchQuestionSuccess = question => ({
   payload: question,
 });
 
-export const SUBMIT_USER_ANSWER_CORRECT = 'SUBMIT_USER_ANSWER_CORRECT'
+export const SUBMIT_USER_ANSWER_CORRECT = 'SUBMIT_USER_ANSWER_CORRECT';
 const feedbackRight = () => ({
-  type:SUBMIT_USER_ANSWER_CORRECT
-})
-export const SUBMIT_USER_ANSWER_WRONG = 'SUBMIT_USER_ANSWER_WRONG'
+  type: SUBMIT_USER_ANSWER_CORRECT,
+});
+export const SUBMIT_USER_ANSWER_WRONG = 'SUBMIT_USER_ANSWER_WRONG';
 const feedbackWrong = () => ({
-  type:SUBMIT_USER_ANSWER_WRONG
-})
+  type: SUBMIT_USER_ANSWER_WRONG,
+});
 
-export const DISMISS_FEEDBACK = 'DISMISS_FEEDBACK'
-const dismissFeedback = ()  => ({
-  type:DISMISS_FEEDBACK
-})
+export const DISMISS_FEEDBACK = 'DISMISS_FEEDBACK';
+export const dismissFeedback = () => ({
+  type: DISMISS_FEEDBACK,
+  payload: '',
+});
 
+export const FETCH_FEEDBACK_CORRECT = 'FETCH_FEEDBACK_CORRECT';
+export const fetchFeedBackCorrect = () => ({
+  type: FETCH_FEEDBACK_CORRECT,
+  payload: 'You guessed correctly',
+});
+
+export const FETCH_FEEDBACK_INCORRECT = 'FETCH_FEEDBACK_INCORRECT';
+export const fetchFeedBackIncorrect = () => ({
+  type: FETCH_FEEDBACK_INCORRECT,
+  payload: 'You guessed incorrectly',
+});
 
 export const fetchQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
@@ -52,13 +64,14 @@ export const fetchQuestion = () => (dispatch, getState) => {
 
 export const submitUserAnswerCorrect = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  dispatch(feedbackRight())
+  dispatch(feedbackRight());
   fetch(`${API_BASE_URL}/questions/correct`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
   })
+    .then(() => dispatch(fetchFeedBackCorrect()))
     .then(() => dispatch(fetchQuestion()))
     .catch(err => {});
 };
@@ -72,6 +85,7 @@ export const submitUserAnswerWrong = () => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`,
     },
   })
-    .then(()=>dispatch(fetchQuestion()))
+    .then(() => dispatch(fetchFeedBackIncorrect()))
+    .then(() => dispatch(fetchQuestion()))
     .catch(err => dispatch(fetchQuestionError(err)));
 };
