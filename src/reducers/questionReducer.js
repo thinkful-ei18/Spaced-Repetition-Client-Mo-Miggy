@@ -4,6 +4,9 @@ import {
   FETCH_QUESTION_REQUEST,
   SUBMIT_USER_ANSWER_CORRECT,
   SUBMIT_USER_ANSWER_WRONG,
+  DISMISS_FEEDBACK,
+  FETCH_FEEDBACK_CORRECT,
+  FETCH_FEEDBACK_INCORRECT,
 } from '../actions/questions';
 
 const initialState = {
@@ -12,8 +15,12 @@ const initialState = {
   loading: null,
   correct: false,
   wrong: false,
+<<<<<<< HEAD
   sessionScore:0,
   totalQuestions:0
+=======
+  feedback: '',
+>>>>>>> f6e5533b29cb40e8b6a9613581b5a48ac92e5140
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -50,6 +57,25 @@ export default function questionReducer(state = initialState, action) {
       correct: false,
       wrong: true,
       totalQuestions:state.totalQuestions+1
+    });
+  }
+  if (action.type === DISMISS_FEEDBACK) {
+    return Object.assign({}, state, {
+      correct: false,
+      wrong: false,
+      feedback: action.payload,
+    });
+  }
+  if (action.type === FETCH_FEEDBACK_CORRECT) {
+    return Object.assign({}, state, {
+      feedback: action.payload,
+    });
+  }
+  if (action.type === FETCH_FEEDBACK_INCORRECT) {
+    return Object.assign({}, state, {
+      feedback: `${action.payload}, the correct answer for ${
+        state.game.spanishWord
+      } was ${state.game.englishWord}`,
     });
   } else {
     return state;
