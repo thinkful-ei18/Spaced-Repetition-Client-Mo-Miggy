@@ -9,7 +9,6 @@ import {
 class Question extends React.Component {
   onChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
     this.setState({ userInput: e.target.value });
   }
   onSubmit(e) {
@@ -20,8 +19,9 @@ class Question extends React.Component {
 
     if (this.state.userInput) {
       if (this.state.userInput.toLowerCase() === englishWord.toLowerCase()) {
+        console.log('got here');
         this.props.dispatch(submitUserAnswerCorrect());
-        this.props.dispatch(fetchQuestion());
+        // this.props.dispatch(fetchQuestion());
       } else {
         this.props.dispatch(submitUserAnswerWrong());
         console.log('error');
