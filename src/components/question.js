@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import {
   submitUserAnswerCorrect,
   submitUserAnswerWrong,
-  fetchFeedBackCorrect,
-  fetchFeedBackIncorrect,
 } from '../actions/questions';
 
 class Question extends React.Component {

@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   background-size: cover;
+  background-image: url(spain-road.jpg);
+  background-blend-mode: screen;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(200, 200, 200);
 }
@@ -15,7 +17,7 @@ body {
   height: 420px;
   padding: 80px 40px;
   box-sizing: border-box;
-  background: rgba(32, 63, 163, 0.466);
+  background: rgba(32, 63, 163, 0.6);
 }
 .loginBox2 {
   position: absolute;
@@ -26,7 +28,7 @@ body {
   height: 600px;
   padding: 80px 40px;
   box-sizing: border-box;
-  background: rgba(32, 63, 163, 0.466);
+  background: rgba(32, 63, 163, 0.6);
 }
 h2 {
   margin: 0;
