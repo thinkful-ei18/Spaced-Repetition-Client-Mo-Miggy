@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
   submitUserAnswerCorrect,
   submitUserAnswerWrong,
-  fetchQuestion,
 } from '../actions/questions';
 
 class Question extends React.Component {
@@ -24,9 +23,6 @@ class Question extends React.Component {
     else {
       this.props.dispatch(submitUserAnswerWrong());
     }
-  }
-  verifyAnswer(e) {
-    //this is where the validation happens
   }
   render() {
     if(this.props.wrong){

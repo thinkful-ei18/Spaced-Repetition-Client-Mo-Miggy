@@ -12,6 +12,8 @@ const initialState = {
   loading: null,
   correct: false,
   wrong: false,
+  sessionScore:0,
+  totalQuestions:0
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -39,12 +41,15 @@ export default function questionReducer(state = initialState, action) {
     return Object.assign({}, state, {
       correct: true,
       wrong: false,
+      sessionScore:state.sessionScore+1,
+      totalQuestions:state.totalQuestions+1
     });
   }
   if (action.type === SUBMIT_USER_ANSWER_WRONG) {
     return Object.assign({}, state, {
       correct: false,
       wrong: true,
+      totalQuestions:state.totalQuestions+1
     });
   } else {
     return state;
