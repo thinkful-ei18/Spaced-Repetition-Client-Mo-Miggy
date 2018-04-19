@@ -15,12 +15,8 @@ const initialState = {
   loading: null,
   correct: false,
   wrong: false,
-<<<<<<< HEAD
   sessionScore:0,
-  totalQuestions:0
-=======
-  feedback: '',
->>>>>>> f6e5533b29cb40e8b6a9613581b5a48ac92e5140
+  totalSessionQuestions:0
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -49,14 +45,14 @@ export default function questionReducer(state = initialState, action) {
       correct: true,
       wrong: false,
       sessionScore:state.sessionScore+1,
-      totalQuestions:state.totalQuestions+1
+      totalSessionQuestions:state.totalSessionQuestions+1
     });
   }
   if (action.type === SUBMIT_USER_ANSWER_WRONG) {
     return Object.assign({}, state, {
       correct: false,
       wrong: true,
-      totalQuestions:state.totalQuestions+1
+      totalSessionQuestions:state.totalSessionQuestions+1
     });
   }
   if (action.type === DISMISS_FEEDBACK) {
@@ -77,7 +73,8 @@ export default function questionReducer(state = initialState, action) {
         state.game.spanishWord
       } was ${state.game.englishWord}`,
     });
-  } else {
+  }
+  else {
     return state;
   }
 }

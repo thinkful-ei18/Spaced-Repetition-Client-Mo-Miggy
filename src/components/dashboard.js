@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 import { fetchQuestion } from '../actions/questions';
 import Question from './question';
+import Progress from './progress';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ export class Dashboard extends React.Component {
         </div>
         <div className="dashboard-name">Name: {this.props.name}</div>
         <Question />
+        <Progress />
       </div>
     );
   }
