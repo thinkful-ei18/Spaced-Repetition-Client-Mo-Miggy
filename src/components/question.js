@@ -19,9 +19,6 @@ class Question extends React.Component {
       this.props.dispatch(submitUserAnswerWrong());
     }
   }
-  verifyAnswer(e) {
-    //this is where the validation happens
-  }
   render() {
     const spanishWord =
       this.props.currentQuestion !== null
