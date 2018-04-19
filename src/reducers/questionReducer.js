@@ -36,13 +36,13 @@ export default function questionReducer(state = initialState, action) {
     });
   }
   if (action.type === SUBMIT_USER_ANSWER_CORRECT) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       correct: true,
       wrong: false,
     });
   }
   if (action.type === SUBMIT_USER_ANSWER_WRONG) {
-    Object.assign({}, state, {
+    return Object.assign({}, state, {
       correct: false,
       wrong: true,
     });

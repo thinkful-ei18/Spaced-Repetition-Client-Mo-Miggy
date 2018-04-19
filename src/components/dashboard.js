@@ -7,7 +7,6 @@ import Question from './question';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
     this.props.dispatch(fetchQuestion());
   }
 
