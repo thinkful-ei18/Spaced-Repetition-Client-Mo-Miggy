@@ -31,7 +31,7 @@ class Question extends React.Component {
       <div className="question-dashboard">
         <form onSubmit={e => this.onSubmit(e)}>
           <h2>{spanishWord}</h2>
-          <h3>{feedback}</h3>
+          <h3 className="feedback">{feedback}</h3>
           <input type="text" name="userAnswer" autoComplete="off" />
           <button>Submit</button>
         </form>
