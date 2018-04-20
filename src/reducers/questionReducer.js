@@ -67,6 +67,9 @@ export default function questionReducer(state = initialState, action) {
   if (action.type === FETCH_FEEDBACK_CORRECT) {
     return Object.assign({}, state, {
       feedback: action.payload,
+      correctAnswer: `The correct answer for ${state.game.spanishWord} was ${
+        state.game.englishWord
+      }`,
     });
   }
   if (action.type === FETCH_FEEDBACK_INCORRECT) {
