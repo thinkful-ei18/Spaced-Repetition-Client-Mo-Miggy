@@ -77,9 +77,9 @@ a {
   text-decoration: none;
   text-align: center;
   padding: 5px;
-  height: 25px;
+  height: 23px;
   width: 45%;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(221, 206, 206, 0.308);
   color: rgb(253, 245, 245);
   float: right;
   width: 45%;
@@ -88,7 +88,7 @@ a {
 
 .btn-landing {
   font-family: sans-serif;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(221, 206, 206, 0.308);
   font-size: 20px;
   padding: 5px;
   width: 45%;
@@ -99,7 +99,8 @@ a {
 
 .btn-register {
   font-family: sans-serif;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(221, 206, 206, 0.308);
+  color: rgb(253, 245, 245);
   font-size: 20px;
   padding: 5px;
   width: 45%;
@@ -196,7 +197,7 @@ loginBox2 p {
 
 .btn-dash {
   font-family: sans-serif;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(221, 206, 206, 0.308);
   font-size: 20px;
   padding: 5px;
   width: 45%;
