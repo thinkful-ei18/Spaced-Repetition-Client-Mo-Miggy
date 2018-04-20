@@ -38,7 +38,7 @@ h2 {
   margin: 0;
   padding: 0 0 20px;
   color: rgb(253, 245, 245);
-  font-family: "pacifico", pacifico, 'Courier New', Courier, monospace;
+  font-family: 'pacifico', pacifico, 'Comic Sans MS', cursive, sans-serif;
   font-size: 40px;
   font-weight: 50;
   text-align: center;
@@ -154,12 +154,12 @@ loginBox2 p {
   background: rgba(240, 28, 56, 0.8);
 }
 
-.header-bar>button {
+.header-bar > button {
   background: rgba(240, 28, 56, 0);
   color: rgb(253, 245, 245);
   width: 10%;
   font-size: 16px;
-  font-family: "pacifico", pacifico, 'Courier New', Courier, monospace;
+  font-family: 'pacifico', pacifico, 'Comic Sans MS', cursive, sans-serif;
   height: 100%;
   float: right;
   border: none;
@@ -167,7 +167,7 @@ loginBox2 p {
 
 .header-app-name {
   height: 100%;
-  font-family: "pacifico", pacifico, 'Courier New', Courier, monospace;
+  font-family: 'pacifico', pacifico, 'Comic Sans MS', cursive, sans-serif;
   font-size: 20px;
 }
 
@@ -183,7 +183,7 @@ loginBox2 p {
 }
 
 .dashboard-name {
-  font-family: "pacifico", pacifico, 'Courier New', Courier, monospace;
+  font-family: 'pacifico', pacifico, 'Comic Sans MS', cursive, sans-serif;
   font-size: 20px;
   top: -50px;
   position: relative;
