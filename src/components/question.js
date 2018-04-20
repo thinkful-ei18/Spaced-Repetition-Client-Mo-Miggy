@@ -30,9 +30,9 @@ class Question extends React.Component {
     return (
       <div className="question-dashboard">
         <form onSubmit={e => this.onSubmit(e)}>
-          <h2>{spanishWord}</h2>
+          <h2 className="spanishWord">{spanishWord}</h2>
           <h3 className="feedback">{feedback}</h3>
-          <input type="text" name="userAnswer" autoComplete="off" />
+          <input type="text" name="userAnswer" autoComplete="off" className="gameInput" />
           <button>Submit</button>
         </form>
       </div>
