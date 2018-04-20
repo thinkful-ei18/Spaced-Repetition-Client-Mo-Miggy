@@ -15,8 +15,10 @@ const initialState = {
   loading: null,
   correct: false,
   wrong: false,
-  sessionScore:0,
-  totalSessionQuestions:0
+  feedback: null,
+  correctAnswer: null,
+  sessionScore: 0,
+  totalSessionQuestions: 0,
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -44,15 +46,15 @@ export default function questionReducer(state = initialState, action) {
     return Object.assign({}, state, {
       correct: true,
       wrong: false,
-      sessionScore:state.sessionScore+1,
-      totalSessionQuestions:state.totalSessionQuestions+1
+      sessionScore: state.sessionScore + 1,
+      totalSessionQuestions: state.totalSessionQuestions + 1,
     });
   }
   if (action.type === SUBMIT_USER_ANSWER_WRONG) {
     return Object.assign({}, state, {
       correct: false,
       wrong: true,
-      totalSessionQuestions:state.totalSessionQuestions+1
+      totalSessionQuestions: state.totalSessionQuestions + 1,
     });
   }
   if (action.type === DISMISS_FEEDBACK) {
@@ -69,12 +71,12 @@ export default function questionReducer(state = initialState, action) {
   }
   if (action.type === FETCH_FEEDBACK_INCORRECT) {
     return Object.assign({}, state, {
-      feedback: `${action.payload}, the correct answer for ${
-        state.game.spanishWord
-      } was ${state.game.englishWord}`,
+      feedback: `${action.payload}`,
+      correctAnswer: `The correct answer for ${state.game.spanishWord} was ${
+        state.game.englishWord
+      }`,
     });
-  }
-  else {
+  } else {
     return state;
   }
 }

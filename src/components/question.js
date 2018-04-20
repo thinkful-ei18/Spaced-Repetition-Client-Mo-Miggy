@@ -27,13 +27,22 @@ class Question extends React.Component {
     const feedback =
       this.props.feedback !== null ? this.props.feedback : undefined;
 
+    const correctAnswer =
+      this.props.correctAnswer !== null ? this.props.correctAnswer : undefined;
+
     return (
       <div className="question-dashboard">
         <form onSubmit={e => this.onSubmit(e)}>
           <h2>{spanishWord}</h2>
           <h3 className="feedback">{feedback}</h3>
-          <input type="text" name="userAnswer" autoComplete="off" />
-          <button>Submit</button>
+          <h3 className="feedback">{correctAnswer}</h3>
+          <input
+            className="useranswer"
+            type="text"
+            name="userAnswer"
+            autoComplete="off"
+          />
+          <button className="btn-dash">Submit</button>
         </form>
       </div>
     );
@@ -44,6 +53,7 @@ const mapStateToProps = state => ({
   wrong: state.question.wrong,
   correct: state.question.correct,
   feedback: state.question.feedback,
+  correctAnswer: state.question.correctAnswer,
 
   // currentQuestion: state.question,
 });
