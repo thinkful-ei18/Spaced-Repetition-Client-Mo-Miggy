@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Progress extends React.Component {
   render() {
     if (this.props.total === 0) {
-      return <p>Buena Suerte</p>;
+      return null;
     }
     return (
       <div className="progressbar">
