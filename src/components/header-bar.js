@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
 import { Redirect } from 'react-router';
+import {Link} from 'react-router-dom';
 
 export class HeaderBar extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
   }
+
   redirect() {
     return <this.redirect to="/" />;
   }
@@ -20,7 +22,7 @@ export class HeaderBar extends React.Component {
       logOutButton = <button onClick={() => this.logOut()}>Log out</button>;
     }
     if (!this.props.loggedIn) {
-      logOutButton = <button>Log in</button>;
+      logOutButton = <Link to="/">signIn </Link>;
     }
     return (
       <div className=" header-primary-main header-bar">
