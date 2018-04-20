@@ -17,8 +17,8 @@ Back End
 
 ## Live Links
 
-App: https://silly-pasteur-c433d2.netlify.com/
-Client Repo: https://github.com/thinkful-ei18/Spaced-Repetition-Client-Mo-Miggy
-Server Repo: https://github.com/thinkful-ei18/Spaced-Repeition-Server-Mo-Miggy
+- App: https://silly-pasteur-c433d2.netlify.com/
+- Client Repo: https://github.com/thinkful-ei18/Spaced-Repetition-Client-Mo-Miggy
+- Server Repo: https://github.com/thinkful-ei18/Spaced-Repeition-Server-Mo-Miggy
 
 
