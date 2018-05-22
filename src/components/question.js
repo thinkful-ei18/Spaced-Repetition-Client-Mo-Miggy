@@ -54,8 +54,6 @@ const mapStateToProps = state => ({
   correct: state.question.correct,
   feedback: state.question.feedback,
   correctAnswer: state.question.correctAnswer,
-
-  // currentQuestion: state.question,
 });
 
 export default connect(mapStateToProps)(Question);

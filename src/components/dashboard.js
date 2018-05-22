@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
 import { fetchQuestion } from '../actions/questions';
 import Question from './question';
 import Progress from './progress';
