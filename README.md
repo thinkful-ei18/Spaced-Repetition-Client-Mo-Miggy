@@ -23,6 +23,6 @@ Back End
 
 - App: https://spaced-repetition-migmo.netlify.com/
 - Client Repo: https://github.com/thinkful-ei18/Spaced-Repetition-Client-Mo-Miggy
-- Server Repo: https://github.com/thinkful-ei18/Spaced-Repeition-Server-Mo-Miggy
+- Server Repo: https://github.com/thinkful-ei18/Spaced-Repetition-Server-Mo-Miggy
 
 
