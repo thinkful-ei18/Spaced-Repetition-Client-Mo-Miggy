@@ -26,3 +26,4 @@ Back End
 - Server Repo: https://github.com/thinkful-ei18/Spaced-Repetition-Server-Mo-Miggy
 
 
+<img src="https://github.com/thinkful-ei18/Spaced-Repetition-Client-Mo-Miggy/blob/master/02.png" />
